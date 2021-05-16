@@ -9,19 +9,19 @@ public class Ladder {
     }
 
     public int run(int no) {
-        if(no - 1 <= 0 && row[no - 1] == 1) {
-            return no + 1;
+        if(row[no] == 0) {
+            return no;
         }
-        if(row[no - 1] == 1) {
-            if(row[no - 2] == 1) {
+
+        // left
+        if(no - 1 >= 0) {
+            int leftValue = row[no - 1];
+            if( leftValue == 1) {
                 return no - 1;
             }
-
-            if(row[no] == 1) {
-                return no + 1;
-            }
         }
-        return no;
+
+        return no + 1;
     }
 
     public void drawLine(int start) {
