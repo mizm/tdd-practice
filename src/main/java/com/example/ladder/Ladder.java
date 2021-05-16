@@ -15,7 +15,7 @@ public class Ladder {
     public int run(int no) {
         for (int i = 0; i < rows.length; i++) {
             Row row = rows[i];
-            no = row.moveRow(no);
+            no = row.move(no);
         }
         return no;
     }
