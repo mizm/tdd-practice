@@ -2,30 +2,32 @@ package com.example.ladder;
 
 public class Ladder {
 
-    private int[] row;
+    private int[][] rows;
 
-    public Ladder(int noOfPerson) {
-        row = new int[noOfPerson];
+    public Ladder(int countOfRow, int noOfPerson) {
+        rows = new int[countOfRow][noOfPerson];
     }
 
     public int run(int no) {
-        if(row[no] == 0) {
-            return no;
+        for (int i = 0; i < rows.length; i++) {
+           int[] row = rows[i];
+           if(row[no] == 0) {
+               continue;
+           }
+           if(no - 1 >= 0) {
+               int leftValue = row[no - 1];
+               if( leftValue == 1) {
+                   no--;
+                   continue;
+               }
+           }
+           no++;
         }
-
-        // left
-        if(no - 1 >= 0) {
-            int leftValue = row[no - 1];
-            if( leftValue == 1) {
-                return no - 1;
-            }
-        }
-
-        return no + 1;
+        return no;
     }
 
-    public void drawLine(int start) {
-        row[start] = 1;
-        row[start + 1] = 1;
+    public void drawLine(int noOfRow, int start) {
+        rows[noOfRow][start] = 1;
+        rows[noOfRow][start + 1] = 1;
     }
 }
