@@ -4,9 +4,9 @@ class Ladder {
 
     private Row[] rows;
 
-    Ladder(int countOfRow, int noOfPerson) {
-        rows = new Row[countOfRow];
-        for (int i = 0; i < countOfRow; i++) {
+    Ladder(NaturalNumber height, NaturalNumber noOfPerson) {
+        rows = new Row[height.getNumber()];
+        for (int i = 0; i < height.getNumber(); i++) {
             rows[i] = new Row(noOfPerson);
         }
 
@@ -20,7 +20,11 @@ class Ladder {
         return no;
     }
 
-    void drawLine(int noOfRow, int start) {
-        rows[noOfRow].draw(start);
+
+    void drawLine(NaturalNumber height, NaturalNumber start) {
+        if(height.toArrayIndex() > rows.length - 1) {
+            throw new IllegalArgumentException("줄수의 최대치를 넘습니다.");
+        }
+        rows[height.toArrayIndex()].draw(start);
     }
 }
