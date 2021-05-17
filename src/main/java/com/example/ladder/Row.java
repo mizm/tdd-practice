@@ -1,7 +1,7 @@
 package com.example.ladder;
 
 // 1급 컬렉션
-public class Row {
+class Row {
     enum Direction {
         LEFT(-1),
         CENTER(0),
@@ -17,22 +17,20 @@ public class Row {
             return no;
         }
     }
-    private static final int LEFT_DIRECTION = -1;
-    private static final int CENTER_DIRECTION = 0;
-    private static final int RIGHT_DIRECTION = 1;
+
 
     private int[] persons;
 
-    public Row(int noOfPerson) {
+    Row(int noOfPerson) {
         this.persons = new int[noOfPerson];
     }
 
-    public void draw(int start) {
+    void draw(int start) {
         persons[start] = Direction.RIGHT.getNo();
         persons[start + 1] = Direction.LEFT.getNo();
     }
 
-    public int move(int no) {
+    int move(int no) {
         if(isNoLine(no)) {
             return no;
         }

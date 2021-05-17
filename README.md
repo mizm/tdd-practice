@@ -6,4 +6,5 @@
     - step2-3 Row클래스 추출
 3. 리팩토링
     - step3-1 Ladder Test -> RowTes / Row의 move() 메서드 리팩토링
-    - step3-2 isLeft() 1,-1 값 enum화
+    - step3-2 isLeft() 1,-1 값 enum
+    - step3-3 접근제어자 수정
