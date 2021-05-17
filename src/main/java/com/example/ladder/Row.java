@@ -37,22 +37,21 @@ class Row {
         persons[startIndex + 1] = Direction.LEFT.getNo();
     }
 
-    int move(int no) {
-        if(no < 0) {
-            throw new IllegalArgumentException("0 이상이어야 합니다.");
+
+    Marker move(Marker startMarker) {
+        if(startMarker.toArrayIndex() > persons.length - 1) {
+            throw new IllegalArgumentException("시작점은 사람 수 보다 적어야 합니다.");
         }
-        if(no > persons.length - 1) {
-            throw new IllegalArgumentException("시작점이 너무 큽니다.");
-        }
-        if(isNoLine(no)) {
-            return no;
+        if(isNoLine(startMarker.toArrayIndex())) {
+            return startMarker;
         }
 
-        if(isRightDirection(no)) {
-            return no + Direction.RIGHT.getNo();
+        if(isRightDirection(startMarker.toArrayIndex())) {
+            return startMarker.moveRight();
         }
-        return no + Direction.LEFT.getNo();
+        return startMarker.moveLeft();
     }
+
 
     private boolean isRightDirection(int no) {
         return persons[no] == Direction.RIGHT.getNo();

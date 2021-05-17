@@ -11,4 +11,5 @@
    - step3-4 enum 리팩토링, 예외 처리(생성자,drawline,move)
    
 4. 객체 추출
-   - step4-1 
+   - step4-1 자연수 객체 추출
+   - step4-2 int 타입 객체 추출2

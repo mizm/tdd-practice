@@ -26,18 +26,10 @@ public class LadderTest {
         // 1 -> 0
         // 2 -> 1
         // 3 -> 2
-        assertThat(ladder.run(0)).isEqualTo(3);
-        assertThat(ladder.run(1)).isEqualTo(0);
-        assertThat(ladder.run(2)).isEqualTo(1);
-        assertThat(ladder.run(3)).isEqualTo(2);
-    }
-
-    @Test
-    @DisplayName("그릴 라인은 0 이상이어야 합니다.")
-    void testDrawOverOne() {
-        Ladder ladder = new Ladder(new NaturalNumber(3), new NaturalNumber(4));
-        assertThrows(IllegalArgumentException.class,
-                () -> ladder.drawLine(new NaturalNumber(0),new NaturalNumber(2)));
+        assertThat(ladder.run(new Marker(1))).isEqualTo(new Marker(4));
+        assertThat(ladder.run(new Marker(2))).isEqualTo(new Marker(1));
+        assertThat(ladder.run(new Marker(3))).isEqualTo(new Marker(2));
+        assertThat(ladder.run(new Marker(4))).isEqualTo(new Marker(3));
     }
 
     @Test

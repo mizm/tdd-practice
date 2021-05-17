@@ -12,10 +12,8 @@ class RowTest {
     @DisplayName("라인이 없는 경우")
     void testMoveWhenNoLine() {
         Row row = new Row(new NaturalNumber(3));
-        int target = row.move(0);
-        assertThat(target).isEqualTo(0);
-        target = row.move(2);
-        assertThat(target).isEqualTo(2);
+        NaturalNumber target = row.move(new Marker(1));
+        assertThat(target.getNumber()).isEqualTo(1);
     }
 
     @Test
@@ -25,40 +23,16 @@ class RowTest {
         Row row = new Row(new NaturalNumber(3));
         row.draw(new NaturalNumber(1));
 
-        int target = row.move(1);
-        assertThat(target).isEqualTo(0);
-
-        target = row.move(0);
-        assertThat(target).isEqualTo(1);
+        NaturalNumber target = row.move(new Marker(2));
+        assertThat(target.getNumber()).isEqualTo(1);
 
         // 0 1 1
         row = new Row(new NaturalNumber(3));
         row.draw(new NaturalNumber(2));
 
-        target = row.move(2);
-        assertThat(target).isEqualTo(1);
+        target = row.move(new Marker(3));
+        assertThat(target.getNumber()).isEqualTo(2);
 
-        target = row.move(1);
-        assertThat(target).isEqualTo(2);
-
-        target = row.move(0);
-        assertThat(target).isEqualTo(0);
-    }
-
-    @Test
-    @DisplayName("사람 수가 1보다 작을때 에러 테스트")
-    void createFailTest() {
-        assertThrows(IllegalArgumentException.class,
-                () ->    new Row(new NaturalNumber(0))
-        );
-    }
-    @Test
-    @DisplayName("선을 그릴 때는 시작점은 0 이상이어야 한다")
-    void drawFailTest() {
-        Row row = new Row(new NaturalNumber(3));
-        assertThrows(IllegalArgumentException.class,
-                () ->  row.draw(new NaturalNumber(0))
-        );
     }
 
     @Test
@@ -80,19 +54,11 @@ class RowTest {
     }
 
     @Test
-    @DisplayName("움직일때 0보다 작은 값이 시작점으로 주어져서는 안된다.")
-    void moveFailTest() {
-        Row row = new Row(new NaturalNumber(3));
-        assertThrows(IllegalArgumentException.class,
-                () ->  row.move(-1)
-        );
-    }
-    @Test
     @DisplayName("움직일때 사람수 보다 큰 값이 시작점으로 주어져서는 안된다.")
     void moveFailTest2() {
         Row row = new Row(new NaturalNumber(3));
         assertThrows(IllegalArgumentException.class,
-                () ->  row.move(3)
+                () ->  row.move(new Marker(4))
         );
     }
 

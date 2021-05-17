@@ -12,7 +12,7 @@ class Ladder {
 
     }
 
-    int run(int no) {
+    Marker run(Marker no) {
         for (int i = 0; i < rows.length; i++) {
             Row row = rows[i];
             no = row.move(no);
