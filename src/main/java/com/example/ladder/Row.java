@@ -39,7 +39,16 @@ class Row {
         return nodes[marker.toArrayIndex()].move(marker);
     }
 
-    public Node[] getNodes() {
-        return this.nodes;
+
+    void generateRow(NaturalNumber height, NaturalNumber noOfPerson, StringBuilder sb, int currentHeight) {
+        for (int j = 0; j < nodes.length; j++) {
+            Node node = nodes[j];
+            sb.append(node.getSymbol());
+
+            if(height.toArrayIndex() == currentHeight && noOfPerson.toArrayIndex() == j) {
+                sb.append("*");
+            }
+            sb.append(" ");
+        }
     }
 }

@@ -7,16 +7,18 @@ import static com.example.ladder.Node.Direction.*;
 public class Node {
 
     enum Direction {
-        LEFT,CENTER,RIGHT;
+        LEFT(-1),CENTER(0),RIGHT(1);
 
-
+        private int symbol;
+        Direction(int symbol) {
+            this.symbol = symbol;
+        }
 
     }
     private Direction direction;
     private Node(Direction direction) {
         this.direction = direction;
     }
-
     public Marker move(Marker marker) {
         if(isRightDirection()) {
             return marker.moveRight();
@@ -39,10 +41,10 @@ public class Node {
     void changeRight() {
         this.direction = RIGHT;
     }
+
     void changeLeft() {
         this.direction = LEFT;
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -54,6 +56,10 @@ public class Node {
     @Override
     public int hashCode() {
         return Objects.hash(direction);
+    }
+
+    public int getSymbol() {
+        return direction.symbol;
     }
 
     static Node createCenterNode() {

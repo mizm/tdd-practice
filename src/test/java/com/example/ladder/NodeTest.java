@@ -58,4 +58,14 @@ public class NodeTest {
         Marker marker = node.move(new Marker(3));
         assertThat(marker).isEqualTo(new Marker(3));
     }
+
+    @Test
+    void testGetSymbol() {
+        Node node1 = Node.createCenterNode();
+        assertThat(0).isEqualTo(node1.getSymbol());
+        Node node2 = Node.createRightNode();
+        assertThat(1).isEqualTo(node2.getSymbol());
+        Node node3 = Node.createLeftNode();
+        assertThat(-1).isEqualTo(node3.getSymbol());
+    }
 }
