@@ -38,4 +38,8 @@ class Row {
         }
         return nodes[marker.toArrayIndex()].move(marker);
     }
+
+    public Node[] getNodes() {
+        return this.nodes;
+    }
 }
