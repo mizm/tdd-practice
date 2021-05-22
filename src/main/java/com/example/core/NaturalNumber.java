@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class NaturalNumber {
     private int number;
+    private static final int INTERVAL = 1;
 
     public NaturalNumber(int number) {
         if(number < 1) {
@@ -12,12 +13,16 @@ public class NaturalNumber {
         this.number = number;
     }
 
+    public static NaturalNumber createFromArrayIndex(int index) {
+        return new NaturalNumber(index + INTERVAL);
+    }
+
     public int getNumber() {
         return number;
     }
 
     public int toArrayIndex() {
-        return number-1;
+        return number-INTERVAL;
     }
 
     @Override

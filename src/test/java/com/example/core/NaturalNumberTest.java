@@ -26,4 +26,10 @@ public class NaturalNumberTest {
         NaturalNumber naturalNumber = new NaturalNumber(3);
         assertThat(naturalNumber.toArrayIndex()).isEqualTo(2);
     }
+
+    @Test
+    void createArrayIndex() {
+        NaturalNumber naturalNumber = NaturalNumber.createFromArrayIndex(1);
+        assertThat(naturalNumber).isEqualTo(new NaturalNumber(2));
+    }
 }
