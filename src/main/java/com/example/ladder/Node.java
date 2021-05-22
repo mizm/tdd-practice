@@ -6,25 +6,34 @@ import static com.example.ladder.Node.Direction.*;
 
 public class Node {
 
+    enum Direction {
+        LEFT,CENTER,RIGHT;
+
+
+
+    }
+    private Direction direction;
+    private Node(Direction direction) {
+        this.direction = direction;
+    }
+
     public Marker move(Marker marker) {
-        if(this.direction == RIGHT) {
+        if(isRightDirection()) {
             return marker.moveRight();
         }
 
-        if(this.direction == LEFT) {
+        if(isLeftDirection()) {
             return marker.moveLeft();
         }
         return marker;
     }
 
-    enum Direction {
-        LEFT,CENTER,RIGHT;
+    boolean isRightDirection() {
+        return this.direction == RIGHT;
     }
 
-    private Direction direction;
-
-    private Node(Direction direction) {
-        this.direction = direction;
+    boolean isLeftDirection() {
+        return this.direction == LEFT;
     }
 
     void changeRight() {

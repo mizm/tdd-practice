@@ -1,5 +1,7 @@
 package com.example.ladder;
 
+import com.example.core.NaturalNumber;
+
 class Ladder {
 
     private Row[] rows;
@@ -22,9 +24,13 @@ class Ladder {
 
 
     void drawLine(NaturalNumber height, NaturalNumber start) {
-        if(height.toArrayIndex() > rows.length - 1) {
-            throw new IllegalArgumentException("줄수의 최대치를 넘습니다.");
+        if(isOverHeight(height)) {
+            throw new IllegalArgumentException("사다리 최대 높이를 넘습니다.");
         }
         rows[height.toArrayIndex()].draw(start);
+    }
+
+    private boolean isOverHeight(NaturalNumber height) {
+        return height.toArrayIndex() > rows.length - 1;
     }
 }

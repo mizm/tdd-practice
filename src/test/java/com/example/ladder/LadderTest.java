@@ -1,6 +1,6 @@
 package com.example.ladder;
 
-import org.assertj.core.api.Assertions;
+import com.example.core.NaturalNumber;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

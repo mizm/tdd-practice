@@ -1,5 +1,7 @@
 package com.example.ladder;
 
+import com.example.core.NaturalNumber;
+
 class Marker extends NaturalNumber {
 
     public Marker(int number) {

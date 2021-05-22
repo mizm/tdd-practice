@@ -1,5 +1,6 @@
 package com.example.ladder;
 
+import com.example.core.NaturalNumber;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
